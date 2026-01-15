@@ -17,12 +17,8 @@
       "destination": "server/src/server.ts"
     },
     {
-      "source": "/assets/(.*)",
-      "destination": "client/dist/assets/$1"
-    },
-    {
       "source": "/(.*)",
-      "destination": "client/dist/index.html"
+      "destination": "/client/dist/index.html"
     }
   ]
 }
