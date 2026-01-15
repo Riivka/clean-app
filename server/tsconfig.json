@@ -12,6 +12,6 @@
     "resolveJsonModule": true,
     "outDir": "./dist"
   },
-  "include": ["*.ts"],
+  "include": ["src/**/*", "server/**/*"],
   "exclude": ["node_modules"]
 }
