@@ -1,10 +1,17 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount, setData] = useState(0)
+
+  useEffect(() => {
+    // This relative path is the key!
+    fetch('/api/hello')
+      .then(res => res.json())
+      .then(json => setData(json));
+  }, []);
 
   return (
     <>
