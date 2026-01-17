@@ -1,12 +1,10 @@
 import express from 'express';
 const app = express();
 
-// Route path is just /hello; Vercel rewrites /api/hello to this
 app.get('/hello', (req, res) => {
   res.json({ message: "Hello from the backend!" });
 });
 
-// Only listen if not running on Vercel
 if (process.env.VERCEL !== '1') {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
@@ -14,5 +12,5 @@ if (process.env.VERCEL !== '1') {
   });
 }
 
-export default app;
-
+// Change this line:
+module.exports = app;
