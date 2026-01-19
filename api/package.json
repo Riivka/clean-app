@@ -12,6 +12,6 @@
   },
   "scripts": {
     "start": "node dist/src/server.ts",
-    "dev": "npx ts-node src/server.ts"
+    "dev": "npx ts-node server.ts"
   }
 }
