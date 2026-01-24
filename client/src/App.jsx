@@ -1,42 +1,36 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import UserTable from './components/UserTable';
+import { User } from './types/user';
 import './App.css'
 
+
 function App() {
-  const [count, setCount, setData] = useState(0)
+  const [users, setUsers] = useState<Array<User>>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // This relative path is the key!
-    fetch('/api/hello')
-      .then(res => res.json())
-      .then(json => setData(json));
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch('/api/users');
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.error('Failed to fetch:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchUsers();
   }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count} hello yes world
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <main className="max-w-4xl mx-auto p-8">
+      <h1 className="text-3xl font-bold mb-6 text-gray-800">User Management</h1>
+      <UserTable data={users} loading={isLoading} />
+    </main>
+  );
 }
 
-export default App
+export default App;
