@@ -1,6 +1,5 @@
 // api/users.ts
 import { createClient } from '@supabase/supabase-js';
-import 'dotenv/config';
 import { VercelRequest, VercelResponse } from '@vercel/node';
 
 const supabase = createClient(
