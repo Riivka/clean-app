@@ -9,11 +9,8 @@ const supabase = createClient(
 );
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
- // const { data, error } =  await supabase.from('users').select('*');
- const data = [
-    { id: 1, full_name: 'Alice Johnson', email: ''}]
-const error = null;
+  const { data, error } =  await supabase.from('users').select('*');
   
-  if (error) return res.status(500).json({ error: error });
+  if (error) return res.status(500).json({ error: error.message,  p:process.env.SUPABASE_URL!, k:process.env.SUPABASE_ANON_KEY! });
   return res.status(200).json(data);
 }
