@@ -9,5 +9,15 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.90.1"
+  },
+   "contributes": {
+    "chatParticipants": [
+      {
+        "id": "github-commit-push",
+        "fullName": "GitHub Commit Push",
+        "name": "github-commit-push",
+        "description": "Commit code with a relevant message & Pushes the code to the repository in github."
+      }
+    ]
   }
 }

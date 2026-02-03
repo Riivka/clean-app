@@ -16,7 +16,7 @@ function App() {
         const data = await response.json();
         setUsers(data);
       } catch (error) {
-        console.error('Failed to fetch:', error);
+        console.error('Failed to fetch jhj:', error);
       } finally {
         setIsLoading(false);
       }
