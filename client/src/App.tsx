@@ -16,7 +16,7 @@ function App() {
         const data = await response.json();
         setUsers(data);
       } catch (error) {
-        console.error('Failed to fetch jhj:', error);
+        console.error('Failed to fetch gg :', error);
       } finally {
         setIsLoading(false);
       }
